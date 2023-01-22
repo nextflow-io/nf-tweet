@@ -11,3 +11,29 @@ You can run the current version of the `main.nf` script with:
 ```
 nextflow run `main.nf`
 ```
+
+### Get started with plugin dev 
+
+1. Clone this repo 
+
+  ```
+  git clone https://github.com/nextflow-io/nf-tweet
+  ```
+  
+  
+2. Build the plugin 
+
+  ```
+  ./gradlew check
+  ```
+  
+  
+3. Run it 
+
+  ```
+  ./launch.sh run tweet.nf -plugins nf-tweet
+  ```
+   
+   
+  note: this requires a clone of [Nextflow source tree](https://github.com/nextflow-io/nextflow) in a sibling directory 
+ 
