@@ -1,3 +1,9 @@
-twitter_bearer_token
+# Ignore Gradle project-specific cache directory
+.gradle
+.idea
+.nextflow
+
+# Ignore Gradle build output directory
+build
 work
-.nextflow*
+out
