@@ -9,7 +9,7 @@ You must obtain a Twitter Developer account so that you can request a bearer tok
 You can run the current version of the `main.nf` script with:
 
 ```
-nextflow run `main.nf`
+nextflow run main.nf
 ```
 
 ### Get started with plugin dev 
