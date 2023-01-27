@@ -100,7 +100,7 @@ class TweetExtension extends PluginExtensionPoint {
             }
         }
         list_of_tweets.each { it ->
-            channel.bind(it['author_handle'] + ' on ' + it['created_at'] + ' said: ' + it['tweet_text'])
+            channel.bind([it['author_handle'], [it['created_at'], it['tweet_text']]])
         }
         channel.bind(Channel.STOP)
     }
