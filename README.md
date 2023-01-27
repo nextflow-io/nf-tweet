@@ -4,12 +4,12 @@ This repository contains a Proof-of-Concept (POC) of a Nextflow plugin for gathe
 
 Quick overview
 ==============
-You must obtain a Twitter Developer account so that you can request a bearer token. With that done, add your bearer token to a file named `twitter_bearer_token` in the same directory as the `main.nf` file.
+You must obtain a Twitter Developer account so that you can request a bearer token. With that done, add your bearer token to a file named `twitter_bearer_token` in the same directory as the `tweet.nf` file.
 
-You can run the current version of the `main.nf` script with:
+You can run the current version of the `tweet.nf` script with:
 
 ```
-nextflow run main.nf
+./launch.sh run tweet.nf -plugins nf-tweet
 ```
 
 ### Get started with plugin dev 
