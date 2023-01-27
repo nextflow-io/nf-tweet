@@ -7,3 +7,6 @@
 build
 work
 out
+
+# Ignore file with Twitter bearer token
+twitter_bearer_token

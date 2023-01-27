@@ -1,4 +1,7 @@
 include { ofTweets } from 'plugin/nf-tweet'
 
 
-channel.ofTweets('foo').view()
+Channel
+  .ofTweets('Nextflow')
+  .collect()
+  .view()
