@@ -21,6 +21,7 @@ import java.nio.charset.StandardCharsets
  * Note: this class name must be specified in the resources/META-INF/extension.idx file
  *
  * @author Paolo Di Tommaso <paolo.ditommaso@gmail.com>
+ * @author Marcel Ribeiro-Dantas <mribeirodantas@seqera.io>
  */
 class TweetExtension extends PluginExtensionPoint {
 
