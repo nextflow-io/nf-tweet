@@ -49,8 +49,7 @@ class TweetExtension extends PluginExtensionPoint {
         return QueryOfTweets(opts, query)
     }
 
-    @Factory
-    DataflowWriteChannel QueryOfTweets(Map opts, String query) {
+    private DataflowWriteChannel QueryOfTweets(Map opts, String query) {
         // The location of the bearer token file, env var or whatever should
         // be set in the `nextflow.config` file. For now, let's do it the easy
         // way here.
@@ -78,7 +77,7 @@ class TweetExtension extends PluginExtensionPoint {
                         "&end_time=${end_time_str}" +\
                         "&tweet.fields=created_at,author_id" +\
                         "&max_results=${max_results}"
-        println(url)
+        URL obj = new URL(url);
         HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 
         con.setRequestMethod("GET");
