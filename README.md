@@ -1,39 +1,52 @@
-*nf-tweet*
+nf-tweet
+==============
 
-This repository contains a Proof-of-Concept (POC) of a Nextflow plugin for gathering data from Twitter. It serves as a good example for developers interested in developing plugins for other data sources.
+This repository contains a Proof-of-Concept (PoC) of a Nextflow plugin for gathering data from Twitter. It serves as a good example for developers interested in developing plugins for other data sources.
 
 Quick overview
 ==============
 You must obtain a Twitter Developer account so that you can request a bearer token. With that done, add your bearer token to a file named `twitter_bearer_token` in the same directory as the `tweet.nf` file.
 
-You can run the current version of the `tweet.nf` script with:
+This is a work in progress, but when it's ready, you can use it by adding the following to your `nextflow.config`:
 
 ```
-./launch.sh run tweet.nf -plugins nf-tweet
+plugins {
+  id 'nf-tweet@0.0.1'
+}
 ```
 
-### Get started with plugin dev 
+### Getting started with plugin dev
 
-1. Clone this repo 
+1. Clone this repo
 
   ```
   git clone https://github.com/nextflow-io/nf-tweet
   ```
-  
-  
-2. Build the plugin 
+
+2. Clone Nextflow's repository as a sibling repository (if it's not already the case)
 
   ```
-  ./gradlew check
+  git clone https://github.com/nextflow-io/nextflow
   ```
-  
-  
-3. Run it 
+
+ 3. Generate the class path
+
+  ```
+  cd nextflow && ./gradlew exportClasspath
+  ```
+
+4. Enter nf-tweet cloned repo and build the plugin
+
+  ```
+  cd ../nf-tweet && ./gradlew check
+  ```
+
+
+5. Run an example with the nf-tweet plugin.
+> **Note**
+> remember to first create the `twitter_bearer_token` file with your bearer token
 
   ```
   ./launch.sh run tweet.nf -plugins nf-tweet
   ```
-   
-   
-  note: this requires a clone of [Nextflow source tree](https://github.com/nextflow-io/nextflow) in a sibling directory 
- 
+
