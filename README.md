@@ -21,7 +21,7 @@ The following options are available:
 
 | Operator option  | Description                  |
 |---             |---                         |
-| `exclude_retweets`              | The default value is false. Set to true to exclude pure retweets (retweet with message is still included, though).
+| `excludeRetweets`              | The default value is false. Set to true to exclude pure retweets (retweet with message is still included, though).
 
 ### Getting started with plugin dev
 

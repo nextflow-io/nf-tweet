@@ -2,7 +2,7 @@ include { ofTweets } from 'plugin/nf-tweet'
 
 
 Channel
-  .ofTweets('nextflow', exclude_retweets: true)
+  .ofTweets('nextflow', excludeRetweets: true)
   .map { author, date_tweet -> author }
   .collect()
   .view()

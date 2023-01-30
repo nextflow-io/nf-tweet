@@ -27,7 +27,7 @@ import java.nio.charset.StandardCharsets
 class TweetExtension extends PluginExtensionPoint {
 
     private static final Map OFTWEETS_PARAMS = [
-            exclude_retweets: Boolean,
+            excludeRetweets: Boolean,
     ]
 
     private Session session
@@ -64,27 +64,21 @@ class TweetExtension extends PluginExtensionPoint {
     protected void emitTweets(DataflowWriteChannel channel, query, opts, bearerToken) {
         def end_time = new Date().getTime()
         def start_time = end_time - (24 * 60 * 60 * 1000)
-        def exclude_retweets=opts.exclude_retweets
+        def exclude_retweets=opts.excludeRetweets
         def max_results=20
         // Formating dates adequately
         String start_time_str = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'").format(start_time);
         String end_time_str = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'").format(end_time);
         // Formating query adequately
         def query_string = query.replace(' ', '%20')
-        String optional_query
-        if (exclude_retweets) {
-            optional_query = '%20-is:retweet'
-        } else {
-            optional_query = ''
-        }
-
+        def optional_query = exclude_retweets ? '%20-is:retweet' : ''
         String url = "https://api.twitter.com/2/tweets/search/recent?query=" +\
                         query_string + optional_query +\
                         "&start_time=${start_time_str}" +\
                         "&end_time=${end_time_str}" +\
                         "&tweet.fields=created_at,author_id" +\
                         "&max_results=${max_results}"
-        URL obj = new URL(url);
+        println(url)
         HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 
         con.setRequestMethod("GET");
